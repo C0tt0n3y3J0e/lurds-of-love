@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lurds of Love, una colección musical privada y una carta dedicada con cariño.">
+  <title>Lurds of Love - Nuestra colección</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="dust" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <main>
+    <section class="welcome is-visible" id="welcome" aria-labelledby="welcome-title">
+      <div class="welcome__inner">
+        <p class="kicker">Nuestra colección privada</p>
+        <h1 id="welcome-title">Lurds of Love</h1>
+        <p class="subtitle">Una pequeña colección de canciones que me recuerdan a ti.</p>
+        <p class="welcome-note">Algunas canciones duran unos minutos. Lo que me haces sentir no cabe en ninguna de ellas.</p>
+        <button class="primary-button" id="enterButton" type="button">Entrar a nuestra colección</button>
+      </div>
+    </section>
+
+    <section class="collection" id="collection" aria-labelledby="collection-title" hidden>
+      <div class="section-heading">
+        <p class="kicker">Lurds of Love</p>
+        <h2 id="collection-title">Nuestra colección</h2>
+        <p>Cuatro discos provisionales para guardar canciones, recuerdos y palabras que después podrás hacer tuyas.</p>
+      </div>
+
+      <div class="collection-grid" id="trackList" aria-label="Discos disponibles"></div>
+
+      <section class="turntable-area" aria-labelledby="turntable-title">
+        <div class="player-copy">
+          <p class="kicker">Ahora sonando</p>
+          <h2 id="turntable-title">Tocadiscos de la colección</h2>
+          <p id="statusMessage" class="status-message" aria-live="polite">Selecciona un disco y pulsa reproducir cuando quieras empezar.</p>
+        </div>
+
+        <div class="player-layout">
+          <div class="turntable" aria-label="Tocadiscos vintage">
+            <div class="turntable__wood">
+              <div class="platter">
+                <div class="vinyl" id="vinyl">
+                  <span class="groove groove--one"></span>
+                  <span class="groove groove--two"></span>
+                  <span class="groove groove--three"></span>
+                  <span class="groove groove--four"></span>
+                  <span class="record-label" id="recordLabel">Nuestra primera melodía</span>
+                </div>
+              </div>
+              <div class="tonearm" id="tonearm" aria-hidden="true">
+                <span class="tonearm__base"></span>
+                <span class="tonearm__arm"></span>
+                <span class="tonearm__needle"></span>
+              </div>
+              <div class="turntable__plate"></div>
+            </div>
+          </div>
+
+          <div class="controls-panel">
+            <div class="track-display">
+              <span id="currentNumber">Pista 01</span>
+              <strong id="currentTitle">Nuestra primera melodía</strong>
+              <small id="currentArtist">Por elegir</small>
+            </div>
+
+            <div class="transport" aria-label="Controles de reproducción">
+              <button class="icon-button" id="previousButton" type="button" aria-label="Canción anterior" title="Canción anterior">‹</button>
+              <button class="icon-button icon-button--main" id="playButton" type="button" aria-label="Reproducir" title="Reproducir">▶</button>
+              <button class="icon-button" id="pauseButton" type="button" aria-label="Pausar" title="Pausar">Ⅱ</button>
+              <button class="icon-button" id="nextButton" type="button" aria-label="Canción siguiente" title="Canción siguiente">›</button>
+            </div>
+
+            <div class="progress-wrap">
+              <span id="elapsedTime">0:00</span>
+              <input id="progressBar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Progreso de la canción">
+              <span id="durationTime">0:00</span>
+            </div>
+
+            <div class="volume-row">
+              <label for="volumeControl">Volumen</label>
+              <input id="volumeControl" type="range" min="0" max="1" value="0.8" step="0.01">
+            </div>
+
+            <div class="session-tools">
+              <span id="listenedCounter">0 pistas escuchadas</span>
+              <label class="toggle">
+                <input id="effectsToggle" type="checkbox">
+                <span>Efectos sutiles</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dedication" aria-labelledby="dedication-title">
+        <p class="kicker">Dedicatoria musical</p>
+        <h2 id="dedication-title">Lo que me recuerda a ti</h2>
+        <p id="dedicationText">Hay melodías que parecen haber estado esperando toda una vida para encontrar a la persona correcta.</p>
+      </section>
+
+      <div class="letter-entry">
+        <button class="secondary-button" id="showLetterButton" type="button">Hay algo más que quiero decirte</button>
+      </div>
+    </section>
+
+    <section class="letter-section" id="letterSection" aria-labelledby="letter-title" hidden>
+      <div class="envelope" id="envelope" aria-hidden="true">
+        <span class="envelope__flap"></span>
+        <span class="envelope__body"></span>
+      </div>
+
+      <article class="letter-paper">
+        <p class="kicker">Carta final</p>
+        <h2 id="letter-title">Para ti</h2>
+        <div class="letter-text" id="letterText" aria-live="polite"></div>
+        <div class="letter-actions">
+          <button class="secondary-button" id="revealLetterButton" type="button">Mostrar carta completa</button>
+          <button class="ghost-button" id="backToCollectionButton" type="button">Volver a la colección</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <audio id="audioPlayer" preload="metadata"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
